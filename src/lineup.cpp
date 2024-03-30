@@ -165,7 +165,7 @@ bool Lineup::lineup_string_to_data()
         if (item_type < 0 || item_type > 0x32)
             continue;
 
-        if (item_type == 16 || item_type == 33) // 睡莲 花盆
+        if (item_type == 16 || item_type == 33) // Lilypad/pot
         {
             int item_row = atoi(item_str[1].c_str()) - 1;
             int item_col = atoi(item_str[2].c_str()) - 1;
@@ -173,14 +173,14 @@ bool Lineup::lineup_string_to_data()
             this->base[item_row * 9 + item_col] = (item_type == 16) ? 1 : 2;
             this->base_im[item_row * 9 + item_col] = item_imitater ? 1 : 0;
         }
-        else if (item_type == 50) // 墓碑
+        else if (item_type == 50) // Grave
         {
             int item_row = atoi(item_str[1].c_str()) - 1;
             int item_col = atoi(item_str[2].c_str()) - 1;
             this->base[item_row * 9 + item_col] = 3;
             this->base_im[item_row * 9 + item_col] = 0;
         }
-        else if (item_type == 30) // 南瓜
+        else if (item_type == 30) // Pumpkin
         {
             int item_row = atoi(item_str[1].c_str()) - 1;
             int item_col = atoi(item_str[2].c_str()) - 1;
@@ -188,7 +188,7 @@ bool Lineup::lineup_string_to_data()
             this->pumpkin[item_row * 9 + item_col] = 1;
             this->pumpkin_im[item_row * 9 + item_col] = item_imitater ? 1 : 0;
         }
-        else if (item_type == 35) // 咖啡
+        else if (item_type == 35) // Coffee Bean
         {
             int item_row = atoi(item_str[1].c_str()) - 1;
             int item_col = atoi(item_str[2].c_str()) - 1;
@@ -196,18 +196,18 @@ bool Lineup::lineup_string_to_data()
             this->coffee[item_row * 9 + item_col] = 1;
             this->coffee_im[item_row * 9 + item_col] = item_imitater ? 1 : 0;
         }
-        else if (item_type == 48) // 梯子 0x30
+        else if (item_type == 48) // Ladder 0x30
         {
             int item_row = atoi(item_str[1].c_str()) - 1;
             int item_col = atoi(item_str[2].c_str()) - 1;
             this->ladder[item_row * 9 + item_col] = 1;
         }
-        else if (item_type == 49) // 钉耙 0x31
+        else if (item_type == 49) // Rake 0x31
         {
             int item_row = atoi(item_str[1].c_str()) - 1;
             this->rake_row = item_row + 1;
         }
-        else // 主要植物
+        else // "Main plants"
         {
             int item_row = atoi(item_str[1].c_str()) - 1;
             int item_col = atoi(item_str[2].c_str()) - 1;
